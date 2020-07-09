@@ -3,8 +3,12 @@ import {Header, Search, ResultList} from './components/index';
 
 function GrocerApp() {
   
-  const [searchTerm, setSearchTerm] = React.useState('');
-  
+  console.log(localStorage);
+
+  const [searchTerm, setSearchTerm] = React.useState(
+    localStorage.getItem('search') || 'Melon'
+  );
+
   const data = [
     { id: 0,
       name: "Melon"},
@@ -13,16 +17,18 @@ function GrocerApp() {
   ];
 
   const handleSearch = (e) => {
-    console.log(searchTerm);
     setSearchTerm(e.target.value);
+    localStorage.setItem('search', e.target.value)
   }
+
+  const filteredItems = data.filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase()))
 
   return (
     <div>
       <Header />
-      <Search onSearch={handleSearch}/>
+      <Search term={searchTerm} onSearch={handleSearch}/>
       <hr />
-      <ResultList items={data}/>
+      <ResultList items={filteredItems}/>
     </div>
   )
 }
