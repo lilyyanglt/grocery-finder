@@ -25,9 +25,10 @@ function GrocerApp() {
       <Header />
       <InputWithLabel
         id="search"
-        label="Search"
         value={searchTerm} 
-        onInputChange={handleSearch}/>
+        onInputChange={handleSearch}>
+      Search
+      </InputWithLabel>
       <hr />
       <ResultList items={filteredItems}/>
     </div>
