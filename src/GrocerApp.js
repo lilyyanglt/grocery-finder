@@ -1,9 +1,7 @@
 import React from 'react';
-import {Header, Search, ResultList} from './components/index';
+import {Header, InputWithLabel, ResultList} from './components/index';
 
 function GrocerApp() {
-  
-  console.log(localStorage);
 
   const [searchTerm, setSearchTerm] = React.useState(
     localStorage.getItem('search') || 'Melon'
@@ -26,7 +24,11 @@ function GrocerApp() {
   return (
     <div>
       <Header />
-      <Search term={searchTerm} onSearch={handleSearch}/>
+      <InputWithLabel
+        id="search"
+        label="Search"
+        value={searchTerm} 
+        onInputChange={handleSearch}/>
       <hr />
       <ResultList items={filteredItems}/>
     </div>
