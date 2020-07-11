@@ -23,4 +23,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - [ ] Research and see if there's anything existing
   - [ ] Check some sample data on excel spreadsheet and use it in app
 
-
+Resources:
+https://www.benlcollins.com/spreadsheets/google-sheet-web-scraper/
