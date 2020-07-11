@@ -21,5 +21,6 @@ const dataReducer = (currentState, action) => {
       throw new Error()
   }
 }
+ 
 
 export default dataReducer;

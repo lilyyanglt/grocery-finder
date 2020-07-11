@@ -1,7 +1,7 @@
 import React from 'react';
 import dataReducer from './util/reducer';
 import {Header, InputWithLabel, ResultList} from './components/index';
-import API from './api/googleSheet'
+import { API } from './api/googleSheet'
 import useLocalStorage from './util/useLocalStorage';
 
 function GrocerApp() {
@@ -17,7 +17,7 @@ function GrocerApp() {
   /** get data from api **/
 
   React.useEffect(() => {
-
+    console.log("fetching data")
     dispatchData({
       type: "FETCH_DATA_INIT"
     })
