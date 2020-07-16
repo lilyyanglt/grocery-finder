@@ -1,7 +1,7 @@
 import React from 'react';
 import dataReducer from './util/reducer';
 import {Header, SearchForm, ResultList} from './components/index';
-import { API } from './api/googleSheet'
+import { dummyFetch } from './api/googleSheet'
 import useLocalStorage from './util/useLocalStorage';
 
 function GrocerApp() {
@@ -25,8 +25,13 @@ function GrocerApp() {
       type: "FETCH_DATA_INIT"
     })
 
-    fetch(API)
-    .then(response => response.json())
+    // replace this dummyfetch with the following when ready:
+    /*
+    * fetch(API).then(response => response.json()).then(results...)
+    *
+    */
+
+    dummyFetch()
     .then(results => {
       console.log("Data fetched success");
       console.log("---------------------")
