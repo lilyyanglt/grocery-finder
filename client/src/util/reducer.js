@@ -1,4 +1,6 @@
 const dataReducer = (currentState, action) => {
+  console.log("Calling reducer");
+  console.log("-----------------")
   switch (action.type) {
     case 'FETCH_DATA_INIT':
       return {

@@ -1,12 +1,14 @@
 import React from 'react';
 import dataReducer from './util/reducer';
-import {Header, InputWithLabel, ResultList} from './components/index';
+import {Header, SearchForm, ResultList} from './components/index';
 import { API } from './api/googleSheet'
 import useLocalStorage from './util/useLocalStorage';
 
 function GrocerApp() {
+  console.log("Grocery App called");
+  console.log("-------------------");
 
-  const [searchTerm, setSearchTerm] = useLocalStorage('search');
+  const [searchTerm, setSearchTerm] = useLocalStorage('search', 'melon');
 
   const [data, dispatchData] = React.useReducer(dataReducer, {
     data: [],
@@ -14,10 +16,11 @@ function GrocerApp() {
     isErrored: false
   });
 
-  /** get data from api **/
+  /** using React.useCallback hook */
 
-  React.useEffect(() => {
-    console.log("fetching data")
+  const fetchAPI = React.useCallback(() => {
+    console.log("React useCallback called to create FetchAPI");
+    console.log("---------------------------------------");
     dispatchData({
       type: "FETCH_DATA_INIT"
     })
@@ -25,7 +28,8 @@ function GrocerApp() {
     fetch(API)
     .then(response => response.json())
     .then(results => {
-      console.log(results);
+      console.log("Data fetched success");
+      console.log("---------------------")
       dispatchData({
         type: "DATA_FETCH_SUCCESS",
         payload: results
@@ -40,25 +44,32 @@ function GrocerApp() {
 
   }, [])
 
-  // this is the filtering functionality
-  const filteredItems = data.data.filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase()));
+  /** get data from api **/
 
+  React.useEffect(() => {
+    console.log("fetching data in React.UseEffect");
+    console.log("--------------------------------");
+    fetchAPI();
+  }, [])
+
+  
   const handleSearch = (e) => {
+    console.log("Handle Search Called");
+    console.log("--------------------");
     setSearchTerm(e.target.value);
   }
 
   return (
     <div>
       <Header />
-      <InputWithLabel
+      <SearchForm
         id="search"
         value={searchTerm} 
-        onInputChange={handleSearch}>
-      Search
-      </InputWithLabel>
+        onInputChange={handleSearch}
+      />
       <hr />
       {data.isErrored && <p>Something went wrong</p>}
-      {data.isLoading ? <p>Loading...</p> : <ResultList items={filteredItems}/>}
+      {data.isLoading ? <p>Loading...</p> : <ResultList items={data.data.filter(item => item.itemName.toLowerCase().includes(searchTerm.toLowerCase()))}/>}
     </div>
   )
 }
