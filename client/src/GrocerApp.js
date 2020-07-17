@@ -1,14 +1,16 @@
 import React from 'react';
 import dataReducer from './util/reducer';
+import useLocalStorage from './util/useLocalStorage';
 import {Header, SearchForm, ResultList} from './components/index';
 import { dummyFetch } from './api/googleSheet'
-import useLocalStorage from './util/useLocalStorage';
+import './style/main.css'
+
 
 function GrocerApp() {
   console.log("Grocery App called");
   console.log("-------------------");
 
-  const [searchTerm, setSearchTerm] = useLocalStorage('search', 'melon');
+  const [searchTerm, setSearchTerm] = useLocalStorage('search', '');
 
   const [data, dispatchData] = React.useReducer(dataReducer, {
     data: [],
@@ -65,14 +67,13 @@ function GrocerApp() {
   }
 
   return (
-    <div>
+    <div className="main-container">
       <Header />
       <SearchForm
         id="search"
         value={searchTerm} 
         onInputChange={handleSearch}
       />
-      <hr />
       {data.isErrored && <p>Something went wrong</p>}
       {data.isLoading ? <p>Loading...</p> : <ResultList items={data.data.filter(item => item.itemName.toLowerCase().includes(searchTerm.toLowerCase()))}/>}
     </div>

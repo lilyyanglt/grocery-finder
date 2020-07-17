@@ -1,0 +1,55 @@
+:root {
+  --primary-color: pink;
+  --secondary-color: blue;
+  --pale-white: #F2F1D9;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--pale-white);
+}
+
+.header  {
+  margin: 20px auto 10px auto;
+}
+
+.search-container {
+  margin: 0 auto;
+  width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+input[type=text], select {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.search__input {
+  width: 100%;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-container {
+ margin-top: 20px;
+}
+
+.item-card {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1em;
+  margin: 1em auto;
+  width: 600px;
+  border-radius: 50px;
+  background-color: white;;
+}

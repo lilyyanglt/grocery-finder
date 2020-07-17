@@ -11,7 +11,11 @@ const ResultList = ({items}) => {
     return Number(item1.itemPrice) > Number(item2.itemPrice) ? 1 : -1;
   })
 
-  return items.map(item => <Card key={item.id} content={item}/>)
+  return (
+    <div className="item-container">
+    {items.map(item => <Card key={item.id} content={item}/>)}
+    </div>
+  )
 }
 
 const Card = React.memo(({content}) => {
@@ -19,10 +23,10 @@ const Card = React.memo(({content}) => {
   console.log("---------------");
 
   return <div className="item-card">
-    <span>{content.storeName}</span>
-    <span>{content.itemName}</span>
-    <span>{content.itemPrice}</span>
-    <span>{content.itemDesc}</span>
+    <span className="item-card__storeName">{content.storeName}</span>
+    <span className="item-card__itemName">{content.itemName}</span>
+    <span className="item-card__itemPrice">{content.itemPrice}</span>
+    <span className="item-card__itemDesc">{content.itemDesc}</span>
   </div>
 })
 
