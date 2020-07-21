@@ -5,7 +5,6 @@ import {Header, SearchForm, ResultList} from './components/index';
 import { dummyFetch } from './api/googleSheet'
 import './style/main.css'
 
-
 function GrocerApp() {
   console.log("Grocery App called");
   console.log("-------------------");
@@ -33,21 +32,41 @@ function GrocerApp() {
     *
     */
 
-    dummyFetch()
-    .then(results => {
+    fetch('http://localhost:4000/api')
+    .then(response => response.json())
+    .then(result => {
       console.log("Data fetched success");
-      console.log("---------------------")
+      console.log(result);
+      console.log('---------------------')
       dispatchData({
-        type: "DATA_FETCH_SUCCESS",
-        payload: results
+        type: 'DATA_FETCH_SUCCESS',
+        payload: result
       })
     })
     .catch(error => {
-      console.log(error)
+      console.log(error);
       dispatchData({
         type: 'DATA_FETCH_FAILED'
       })
     })
+
+    // ******* NOT USING ANY API BUT JUST USING TESTING DATA ******
+
+    // dummyFetch()
+    // .then(results => {
+    //   console.log("Data fetched success");
+    //   console.log("---------------------")
+    //   dispatchData({
+    //     type: "DATA_FETCH_SUCCESS",
+    //     payload: results
+    //   })
+    // })
+    // .catch(error => {
+    //   console.log(error)
+    //   dispatchData({
+    //     type: 'DATA_FETCH_FAILED'
+    //   })
+    // })
 
   }, [])
 
