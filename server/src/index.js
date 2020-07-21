@@ -1,5 +1,6 @@
 const { notFound, general} = require('./middleware/errorHandling');
 const { Items } = require('./model/grocerySchema');
+const itemRouter = require('./api/items');
 const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
@@ -27,21 +28,21 @@ app.use(cors({
 app.use(express.json());
 
 // ====== CUSTOM MIDDLEWARE =================================
-
+app.use('/api', itemRouter);
 
 // ====== ROUTES ============================
 app.get('/', (req, res) => {
-  console.log(Items);
+  Items.find((err, result) => {
+    if(!err) {
+      console.log(result);
+    } else {
+      console.log(err);
+    }
+  })
   res.json({
     message: "hello world"
   })
 })
-
-app.post('/api', (req, res) => {
-  console.log(req.body);
-  res.send("success");
-})
-
 
 // ========== END OF STACK MIDDLEWARE =======================
 // error handler - not found middleware - should always be 
