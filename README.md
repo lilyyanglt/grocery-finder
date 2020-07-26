@@ -17,22 +17,26 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Initial MVP - No need to write my own REST API but instead I am using sheet.bet to privde this layer
 
 Frontend:
-- [ ] Build frontend prototype without styles
-- [ ] basic search
-- [ ] GET data from api 
-- [ ] filter out data that's not needed
-- [ ] display results of search in a list (using React)
-- [ ] Simple Styling of the components to make it look good
+- [x] Build frontend prototype without styles
+  - [ ] Using sheetbest as the db
+- [x] basic search
+- [x] GET data from api 
+- [x] filter out data that's not needed
+- [x] display results of search in a list (using React)
+- [x] Simple Styling of the components to make it look good
+- [ ] Need to improve on the styling using a css framework. (bulma? Material? boostrap? or semantics ui)
 
 Script for Scraping
-- [ ] Use Cheerio and Axios to scrape data from a Save on Foods
+- [x] Use Cheerio and Axios to scrape data from a Save on Foods
+  - [ ] Cheerio wasn't sufficient, so I need to use puppeteer. 
 - [ ] Once data is scraped, post to Google Sheets api
-
 
 Once the basic building block is working, now build the RESTAPI to move away from Excel sheet
 
-- [ ] Detemine the structure of db
-- [ ] Create python script to scrape data from grocery store sites
-- [ ] Research and see if there's anything existing
-- [ ] Check some sample data on excel spreadsheet and use it in app
+- [x] Detemine the structure of db (very simple with 4 properties: storeName, itemName, itemPrice, and itemDescription)
+- [x] Connect to DB
+- [x] GET api request
+- [x] POST api request
+- [ ] DELETE api request - I want to use this route because every time before new data is posted to db, I want to remove previous data since those would be old.
+  - [ ] Not sure if this is the best way, but for an MVP, this will do for now. 
 
