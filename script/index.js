@@ -1,4 +1,4 @@
-const scrapeData = require('./src/script');
+const {scrapeSaveOnFoodData, scrapeWalmartData} = require('./src/script');
 const {saveOnFoods, walmart } = require('./src/constants');
 const axios = require('axios');
 
@@ -16,7 +16,7 @@ const deleteOldData = async(api) => {
 }
 
 deleteOldData(deleteAPI);
-scrapeData(saveOnFoods.link[0],
+scrapeSaveOnFoodData(saveOnFoods.link[1],
   postAPI,
   saveOnFoods.storeName,
   saveOnFoods.productContainer,
@@ -24,3 +24,12 @@ scrapeData(saveOnFoods.link[0],
   saveOnFoods.itemName,
   saveOnFoods.priceTag,
   saveOnFoods.descTag);
+
+// scrapeWalmartData(walmart.link[0],
+//   postAPI,
+//   walmart.storeName,
+//   walmart.productContainer,
+//   walmart.imgTag,
+//   walmart.itemName,
+//   walmart.priceTag,
+//   walmart.descTag);

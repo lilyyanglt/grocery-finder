@@ -17,8 +17,8 @@ const WALMART_MEAT_SEAFOOD_PAGE_2 = `${WALMART_MEAT_SEAFOOD_PAGE_1}page-2`;
 const saveOnFoods = {
   storeName: 'saveOnFoods',
   link: [SAVE_ON_FOOD_LANDING, SAVE_ON_FOOD_SEAFOOD],
-  productContainer: '.product__itemContent',
-  imgTag:'temporaily null',
+  productContainer: '.productList__product',
+  imgTag:'div.product__itemImage',
   priceTag: 'span.priceInfo__price--current',
   descTag: 'p.text',
   itemName: 'h3'
@@ -27,10 +27,10 @@ const saveOnFoods = {
 const walmart = {
   storeName: 'walmart',
   link: [WALMART_MEAT_SEAFOOD_PAGE_1, WALMART_MEAT_SEAFOOD_PAGE_2],
-  productContainer: 'thumb-inner-wrap.nutrition-enable.nutrition-icon-enable',
-  imgTag:'img.lazy-img (need source)',
-  priceTag: 'div.span....',
-  descTag: 'no description available',
+  productContainer: '.thumb-inner-wrap',
+  imgTag:'img.lazy-img',
+  priceTag: 'div.price-current',
+  descTag: '',
   itemName: 'h2.thumb-header'
 }
 
