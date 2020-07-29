@@ -9,8 +9,9 @@ const itemSchema = new mongoose.Schema({
   storeName: stringType,
   itemName: stringType,
   itemPrice: stringType,
-  itemDesc: stringType
-});
+  itemDesc: stringType,
+  imgSource: stringType
+}, {timestamps: true});
 
 const Items = mongoose.model("Items", itemSchema);
 
