@@ -8,10 +8,7 @@ const stringType = {
 const itemSchema = new mongoose.Schema({
   storeName: stringType,
   itemName: stringType,
-  itemPrice: {
-    type: Number, 
-    required: true
-  }, 
+  itemPrice: stringType,
   itemDesc: stringType
 });
 
