@@ -16,9 +16,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Initial MVP - No need to write my own REST API but instead I am using sheet.bet to privde this layer
 
-Frontend:
+### Frontend:
 - [x] Build frontend prototype without styles
-  - [ ] Using sheetbest as the db
+  - [x] Using sheetbest as the db
 - [x] basic search
 - [x] GET data from api 
 - [x] filter out data that's not needed
@@ -26,12 +26,12 @@ Frontend:
 - [x] Simple Styling of the components to make it look good
 - [ ] Need to improve on the styling using a css framework. (bulma? Material? boostrap? or semantics ui)
 
-Script for Scraping
+### Script for Scraping
 - [x] Use Cheerio and Axios to scrape data from a Save on Foods
-  - [ ] Cheerio wasn't sufficient, so I need to use puppeteer. 
-- [ ] Once data is scraped, post to Google Sheets api
+  - [x] Cheerio wasn't sufficient, so I need to use puppeteer. 
+- [x] Once data is scraped, post to mongoDB
 
-Once the basic building block is working, now build the RESTAPI to move away from Excel sheet
+### Once the basic building block is working, now build the RESTAPI to move away from Excel sheet
 
 - [x] Detemine the structure of db (very simple with 4 properties: storeName, itemName, itemPrice, and itemDescription)
 - [x] Connect to DB
@@ -39,4 +39,10 @@ Once the basic building block is working, now build the RESTAPI to move away fro
 - [x] POST api request
 - [ ] DELETE api request - I want to use this route because every time before new data is posted to db, I want to remove previous data since those would be old.
   - [ ] Not sure if this is the best way, but for an MVP, this will do for now. 
+
+### Hosting:
+- [ ] host backend api
+- [ ] host frontend
+- [ ] test
+
 
