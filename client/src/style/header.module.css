@@ -1,0 +1,48 @@
+.header  {
+  padding: 1em;
+  height: 150px;
+  position: relative;
+}
+
+.header:before {
+  position: absolute;
+  content: '';
+  width: calc(100% - 15px);
+  top: 5px;
+  left: 5px;
+  bottom: 5px;
+  border: 1px solid var(--green)
+}
+
+.header:after {
+  position: absolute;
+  content: '';
+  width: calc(100% - 25px);
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  border: 1px solid var(--orange);
+}
+
+.header > div {
+  display: flex;
+  width: calc(100% - 35px);
+  position: absolute;
+  bottom: 20px;
+  justify-content: space-between;
+}
+
+.appName {
+  grid-area: appNameArea;
+  text-align: center;
+}
+
+.icon {
+  grid-area: iconArea;
+  border: 1px solid black;
+  width: 35px;
+  height: 35px;
+  opacity: 0.8;
+}
+
+
