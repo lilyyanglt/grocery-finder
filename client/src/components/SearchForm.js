@@ -16,7 +16,7 @@ const SearchForm = (
         id={id}
         type={type}
         value={value}
-        placeholder="what grocery item are you looking for?..."
+        placeholder="find grocery item here..."
         onChange={(e) => {onInputChange(e)}}
       />
     </div>
