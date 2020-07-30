@@ -7,6 +7,7 @@
   --orange: orange;
   --pale-white: #F2F1D9;
   --bg-accent: #484a4d;
+  --primary: green;
 }
 
 * {
@@ -26,5 +27,14 @@ body {
 
 }
 
+footer {
+  background-color: var(--bg-accent);
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 10pt;
+}
 
 
