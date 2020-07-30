@@ -1,0 +1,13 @@
+.noResult {
+  text-align: center;
+}
+
+.noResult .text {
+  font-size: var(--loading-message-font);
+  margin-bottom: 3rem;
+  color: var(--loading-message-text);
+}
+
+.noResult .searchTerm {
+  font-weight: 600;
+}

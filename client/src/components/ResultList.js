@@ -1,7 +1,9 @@
 import React from 'react';
-import style from '../style/item.module.css'
+import style from '../style/item.module.css';
+import noResultStyle from '../style/noResult.module.css';
+import noResultImg from '../asset/noResult.png';
 
-const ResultList = ({items}) => {
+const ResultList = ({items, term}) => {
 
   console.log("results list being called");
   console.log("------------------------");
@@ -14,7 +16,13 @@ const ResultList = ({items}) => {
 
   return (
     <div className={style.itemContainer}>
+    {items.length ?
+    <>
     {items.map(item => <Card key={item._id} content={item}/>)}
+    </> 
+    :
+    <NoResult term={term}/>
+    }
     </div>
   )
 }
@@ -31,5 +39,14 @@ const Card = React.memo(({content}) => {
     <span className={style.itemDesc}>{content.itemDesc}</span>
   </div>
 })
+
+const NoResult = ({term}) => {
+  return (
+    <div className={`loading ${noResultStyle.noResult}`}>
+      <p className={noResultStyle.text}><span className={noResultStyle.searchTerm}>"{term}"</span> has no result, but here's a pretty image for you </p>
+      <img src={noResultImg}/>
+    </div>
+  )
+}
 
 export default ResultList;

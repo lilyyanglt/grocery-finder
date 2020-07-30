@@ -10,6 +10,8 @@
   --primary: #F28A30;
   --header-text: #EBF2EA;
   --header-background: #0ABDA0;
+  --loading-message-text: #0ABDA0;
+  --loading-message-font: 1.5rem;
 }
 
 * {
@@ -28,6 +30,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
 }
+
+/* this loading class is being used in components:
+*  - NoResult
+*  - ReactLoading
+*  - LoadingError
+*/
 
 .loading {
   margin: 0 auto;
