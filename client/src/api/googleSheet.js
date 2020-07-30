@@ -525,6 +525,6 @@ export const dummyFetch = () => {
     console.log(testData)
     setTimeout(
       () => resolve(testData)
-    , 2000)
+    , 10000)
   })
 }

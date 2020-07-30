@@ -6,6 +6,7 @@ import {
   SearchForm, 
   ResultList, 
   Footer} from './components/index';
+import ReactLoading from 'react-loading';
 import { dummyFetch } from './api/googleSheet'
 import './style/main.css'
 
@@ -95,7 +96,9 @@ function GrocerApp() {
         onInputChange={handleSearch}
       />
       {data.isErrored && <p>Something went wrong</p>}
-      {data.isLoading ? <p>Loading...</p> : <ResultList items={filteredData}/>}
+      {data.isLoading 
+      ? <ReactLoading className="loading" type="spinningBubbles" color="#0ABDA0" height={100} width={50} />
+      : <ResultList items={filteredData}/>}
       <Footer />
     </div>
   )
