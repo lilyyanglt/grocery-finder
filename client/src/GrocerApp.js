@@ -8,7 +8,8 @@ import {
   Footer,
   LoadingError } from './components/index';
 import ReactLoading from 'react-loading';
-import { dummyFetch } from './api/googleSheet';
+import fetchData from './util/api.js';
+import fetchDataTest from './test/testApi';
 import './style/main.css'
 
 function GrocerApp() {
@@ -25,48 +26,10 @@ function GrocerApp() {
 
   /** using React.useCallback hook */
 
-  const fetchAPI = React.useCallback(() => {
-    console.log("React useCallback called to create FetchAPI");
-    console.log("---------------------------------------");
-    dispatchData({
-      type: "FETCH_DATA_INIT"
-    })
-
-  //   fetch('http://localhost:4000/api')
-  //   .then(response => response.json())
-  //   .then(result => {
-  //     console.log("Data fetched success");
-  //     console.log(result);
-  //     console.log('---------------------')
-  //     dispatchData({
-  //       type: 'DATA_FETCH_SUCCESS',
-  //       payload: result
-  //     })
-  //   })
-  //   .catch(error => {
-  //     console.log(error);
-  //     dispatchData({
-  //       type: 'DATA_FETCH_FAILED'
-  //     })
-  //   })
-
-    // ******* NOT USING ANY API BUT JUST USING TESTING DATA ******
-
-    dummyFetch()
-    .then(results => {
-      console.log("Data fetched success");
-      console.log("---------------------")
-      dispatchData({
-        type: "DATA_FETCH_SUCCESS",
-        payload: results
-      })
-    })
-    .catch(error => {
-      console.log(error)
-      dispatchData({
-        type: 'DATA_FETCH_FAILED'
-      })
-    })
+  const fetchAPI = React.useCallback(async() => {
+    // fetchData(dispatchData);
+    
+    fetchDataTest(dispatchData);
 
   }, [])
 

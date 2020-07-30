@@ -1,5 +1,3 @@
-export const API = "https://sheet.best/api/sheets/50dd1ede-5a4c-440d-af55-d3ff313a9307";
-
 export const testData = JSON.parse(`[
   {
     "_id": "5f21fb0a510aa554b86d9a7a",
@@ -529,7 +527,7 @@ export const dummyFetch = () => {
   })
 }
 
-// // error dummy
+/* error dummy */
 // export const dummyFetch = () => {
 //   return new Promise((resolve, reject) => {
 //     console.log(testData)
@@ -538,3 +536,27 @@ export const dummyFetch = () => {
 //     , 2000)
 //   })
 // }
+
+const fetchDataTest = async (callback) => {
+  callback({
+    type: "FETCH_DATA_INIT"
+  })
+
+  try {
+    const result = await dummyFetch();
+    console.log('fetch success');
+
+    callback({
+      type: 'DATA_FETCH_SUCCESS',
+      payload: result
+    })
+  } catch (error) {
+    console.log(error.message);
+    console.log('---------------------')
+    callback({
+      type: 'DATA_FETCH_FAILED'
+    })
+  }
+}
+
+export default fetchDataTest;
