@@ -11,3 +11,7 @@
 .noResult .searchTerm {
   font-weight: 600;
 }
+
+.noResult.noshow {
+  display: none;
+}

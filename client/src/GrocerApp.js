@@ -99,7 +99,7 @@ function GrocerApp() {
       {data.isErrored && <LoadingError />}
       {data.isLoading 
       ? <ReactLoading className="loading" type="spinningBubbles" color="#0ABDA0" height={100} width={50} />
-      : <ResultList term={searchTerm} items={filteredData}/>}
+      : <ResultList isErrored={data.isErrored} term={searchTerm} items={filteredData}/>}
       <Footer />
     </div>
   )

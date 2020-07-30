@@ -3,7 +3,9 @@ import style from '../style/item.module.css';
 import noResultStyle from '../style/noResult.module.css';
 import noResultImg from '../asset/noResult.png';
 
-const ResultList = ({items, term}) => {
+const ResultList = ({items, 
+  term,
+isErrored}) => {
 
   console.log("results list being called");
   console.log("------------------------");
@@ -21,7 +23,7 @@ const ResultList = ({items, term}) => {
     {items.map(item => <Card key={item._id} content={item}/>)}
     </> 
     :
-    <NoResult term={term}/>
+    <NoResult isErrored={isErrored} term={term}/>
     }
     </div>
   )
@@ -40,9 +42,13 @@ const Card = React.memo(({content}) => {
   </div>
 })
 
-const NoResult = ({term}) => {
+const NoResult = ({term, isErrored}) => {
+  console.log("calling no results component");
+  console.log(isErrored);
+  console.log(noResultStyle);
+  console.log("-----------------------------")
   return (
-    <div className={`loading ${noResultStyle.noResult}`}>
+    <div className={`loading ${noResultStyle.noResult} ${isErrored && noResultStyle.noshow}`}>
       <p className={noResultStyle.text}><span className={noResultStyle.searchTerm}>"{term}"</span> has no result, but here's a pretty image for you </p>
       <img src={noResultImg}/>
     </div>
