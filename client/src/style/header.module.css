@@ -2,7 +2,6 @@
   padding: 1em;
   height: 120px;
   position: relative;
-  z-index: -2;
   display: flex;
   justify-content: space-between;
   background-color: var(--header-background);
@@ -11,12 +10,9 @@
 
 .header svg {
   position: absolute;
+  z-index: -1;
   top: 119px;
   left: 0;
-}
-
-.header > div > a {
-  z-index: 2;
 }
 
 .appName {
@@ -24,16 +20,11 @@
 }
 
 .icon {
-  z-index: 2;
   width: 35px;
   height: 35px;
-  opacity: 0.8;
-  transition: opacity 0.3s;
+  opacity: 0.5;
 }
 
-.icon:hover {
-  opacity: 1;
-}
 
 @media screen and (min-width: 800px) {
   .header {
