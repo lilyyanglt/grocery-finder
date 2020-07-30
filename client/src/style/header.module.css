@@ -1,37 +1,18 @@
 .header  {
   padding: 1em;
-  height: 150px;
+  height: 120px;
   position: relative;
-}
-
-.header:before {
-  position: absolute;
-  content: '';
-  width: calc(100% - 15px);
-  top: 5px;
-  left: 5px;
-  bottom: 5px;
-  border: 1px solid var(--green);
-  z-index: 0;
-}
-
-.header:after {
-  position: absolute;
-  content: '';
-  width: calc(100% - 25px);
-  top: 10px;
-  left: 10px;
-  bottom: 10px;
-  border: 1px solid var(--orange);
-  z-index: 0;
-}
-
-.header > div {
+  z-index: -2;
   display: flex;
-  width: calc(100% - 35px);
-  position: absolute;
-  bottom: 20px;
   justify-content: space-between;
+  background-color: var(--header-background);
+  color: var(--header-text);
+}
+
+.header svg {
+  position: absolute;
+  top: 120px;
+  left: 0;
 }
 
 .header > div > a {
@@ -39,16 +20,25 @@
 }
 
 .appName {
-  grid-area: appNameArea;
   text-align: center;
 }
 
 .icon {
   z-index: 2;
-  grid-area: iconArea;
   width: 35px;
   height: 35px;
   opacity: 0.8;
+  transition: opacity 0.3s;
 }
 
+.icon:hover {
+  opacity: 1;
+}
+
+@media screen and (min-width: 800px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 

@@ -7,7 +7,9 @@
   --orange: orange;
   --pale-white: #F2F1D9;
   --bg-accent: #484a4d;
-  --primary: green;
+  --primary: #F28A30;
+  --header-text: #EBF2EA;
+  --header-background: #0ABDA0;
 }
 
 * {
@@ -32,7 +34,8 @@ footer {
   color: white;
   position: absolute;
   bottom: 0;
-  width: 100%;
+  left: 0;
+  width: calc(100%);
   text-align: center;
   font-size: 10pt;
 }

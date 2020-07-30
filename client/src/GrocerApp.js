@@ -1,7 +1,11 @@
 import React from 'react';
 import dataReducer from './util/reducer';
 import useLocalStorage from './util/useLocalStorage';
-import {Header, SearchForm, ResultList} from './components/index';
+import {
+  Header, 
+  SearchForm, 
+  ResultList, 
+  Footer} from './components/index';
 import { dummyFetch } from './api/googleSheet'
 import './style/main.css'
 
@@ -92,6 +96,7 @@ function GrocerApp() {
       />
       {data.isErrored && <p>Something went wrong</p>}
       {data.isLoading ? <p>Loading...</p> : <ResultList items={filteredData}/>}
+      <Footer />
     </div>
   )
 }

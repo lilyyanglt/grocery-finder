@@ -13,6 +13,8 @@
 .searchLabel {
   padding-right: 1rem;
   font-size: 1.5rem;
+  color: var(--header-text);
+  font-weight: 500;
 }
 
 input[type=text], select {
