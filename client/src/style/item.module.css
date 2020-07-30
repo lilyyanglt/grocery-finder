@@ -1,6 +1,6 @@
 .itemContainer {
-  margin: 20px auto;
-  padding: 1em;
+  padding: 2em;
+  width: 100%;
  }
  
  .itemCard {
@@ -47,26 +47,22 @@
   order: 3;
   max-width: 150px;
   grid-area: itemImage;
-  border: 1px solid purple;
  }
  
 .itemPrice {
   order: 2;
   color: var(--red);
   font-weight: 500;
-  border: 1px solid tomato;
 }
 
 .itemName {
   order: 4;
   min-width: 200px;
-  border: 1px solid pink;
 }
 
 .itemDesc {
   display: none;
   grid-area: itemDesc;
-  border: 1px solid turquoise;
 }
 
  @media screen and (min-width: 800px) {
@@ -74,18 +70,24 @@
   .itemCard {
     display: grid;
     grid-template-areas: 
-    'storeName storeName'
-    'itemImage itemName'
+    'storeName itemName'
+    'itemImage itemPrice'
     'itemImage itemPrice'
     'itemDesc itemDesc';
     grid-gap: 20px;
-    width: 600px;
+    line-height: normal;
   }
 
   .itemName, .itemPrice {
     text-align: right;
    }
    
+   .storeName {
+     position: static;
+     transform: none;
+     font-size: 1rem;
+   }
+
    .walmart {
      grid-area: storeName;
    }

@@ -1,4 +1,5 @@
 import React from 'react';
+import style from '../style/search.module.css';
 
 const SearchForm = (
   {id,
@@ -9,9 +10,9 @@ const SearchForm = (
     console.log("Search form component called");
     console.log("----------------------");
   return (
-    <div className="search-container">
-      <label className="search__label" htmlFor={id}>Search: </label>
-      <input className="search__input" id={id}
+    <div className={style.searchContainer}>
+      <label className={style.searchLabel} htmlFor={id}>Search: </label>
+      <input className={style.searchInput} id={id}
         type={type}
         value={value}
         onChange={(e) => {onInputChange(e)}}
