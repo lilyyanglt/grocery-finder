@@ -520,11 +520,21 @@ export const testData = JSON.parse(`[
   }
 ]`);
 
+// export const dummyFetch = () => {
+//   return new Promise(resolve => {
+//     console.log(testData)
+//     setTimeout(
+//       () => resolve(testData)
+//     , 10000)
+//   })
+// }
+
+// error dummy
 export const dummyFetch = () => {
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     console.log(testData)
     setTimeout(
-      () => resolve(testData)
-    , 10000)
+      () => reject(new Error())
+    , 2000)
   })
 }

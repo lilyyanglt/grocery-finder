@@ -5,9 +5,10 @@ import {
   Header, 
   SearchForm, 
   ResultList, 
-  Footer} from './components/index';
+  Footer,
+  LoadingError } from './components/index';
 import ReactLoading from 'react-loading';
-import { dummyFetch } from './api/googleSheet'
+import { dummyFetch } from './api/googleSheet';
 import './style/main.css'
 
 function GrocerApp() {
@@ -95,7 +96,7 @@ function GrocerApp() {
         value={searchTerm} 
         onInputChange={handleSearch}
       />
-      {data.isErrored && <p>Something went wrong</p>}
+      {data.isErrored && <LoadingError />}
       {data.isLoading 
       ? <ReactLoading className="loading" type="spinningBubbles" color="#0ABDA0" height={100} width={50} />
       : <ResultList items={filteredData}/>}

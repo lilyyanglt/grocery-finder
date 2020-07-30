@@ -1,0 +1,15 @@
+.loading_error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.loading_error p {
+  margin-left: 1rem;
+  font-size: 1.5rem;
+}
+
+.error_icon {
+  height: 30px;
+}
