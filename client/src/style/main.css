@@ -10,8 +10,9 @@
   --primary: #F28A30;
   --header-text: #EBF2EA;
   --header-background: #0ABDA0;
-  --loading-message-text: #24305E;
+  --loading-message-color: #24305E;
   --loading-message-font: 1.5rem;
+  --loading-message-font-mobile: 1rem;
 }
 
 * {
@@ -32,7 +33,6 @@ body {
 }
 
 /* this loading class is being used in components:
-*  - NoResult
 *  - ReactLoading
 *  - LoadingError
 */

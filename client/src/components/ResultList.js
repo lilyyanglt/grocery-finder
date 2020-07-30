@@ -48,7 +48,7 @@ const NoResult = ({term, isErrored}) => {
   console.log(noResultStyle);
   console.log("-----------------------------")
   return (
-    <div className={`loading ${noResultStyle.noResult} ${isErrored && noResultStyle.noshow}`}>
+    <div className={`${noResultStyle.noResult} ${isErrored && noResultStyle.noshow}`}>
       <p className={noResultStyle.text}><span className={noResultStyle.searchTerm}>"{term}"</span> has no result, but here's a pretty image for you </p>
       <img src={noResultImg}/>
     </div>

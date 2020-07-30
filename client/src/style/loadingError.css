@@ -3,14 +3,25 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+  padding: 1rem;
 }
 
 .loading_error p {
   margin-left: 1rem;
-  font-size: 1.5rem;
+  font-size: var(--loading-message-font-mobile);
   color: red;
 }
 
 .error_icon {
-  height: 30px;
+  height: 20px;
+}
+
+@media screen and (min-width: 800px) {
+  .loading_error p {
+    font-size: var(--loading-message-font);
+  }
+
+  .error_icon {
+    height: 30px;
+  }
 }

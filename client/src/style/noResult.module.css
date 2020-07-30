@@ -1,17 +1,38 @@
 .noResult {
   text-align: center;
+  margin-top: 100px;
 }
 
 .noResult .text {
-  font-size: var(--loading-message-font);
-  margin-bottom: 3rem;
-  color: var(--loading-message-text);
+  font-size: var(--loading-message-font-mobile);
+  margin-bottom: 2rem;
+  color: var(--loading-message-color);
 }
 
 .noResult .searchTerm {
   font-weight: 600;
 }
 
+.noResult img {
+  width: 200px;
+}
+
 .noResult.noshow {
   display: none;
+}
+
+@media screen and (min-width: 800px) {
+  .noResult {
+    margin-top: 250px;
+  }
+  
+  .noResult .text {
+    font-size: var(--loading-message-font);
+    margin-bottom: 3rem;
+  }
+  
+  .noResult img {
+    width: initial;
+  }
+
 }
