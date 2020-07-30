@@ -1,12 +1,13 @@
 :root {
-  --primary-color: pink;
-  --secondary-color: blue;
+  --green: #48C773;
+  --blue: #3273DC;
+  --red: red;
   --pale-white: #F2F1D9;
 }
 
 body {
   min-height: 100vh;
-  background-color: var(--pale-white);
+  width: 100%;
 }
 
 .header  {
@@ -15,7 +16,6 @@ body {
 
 .search-container {
   margin: 0 auto;
-  width: 600px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -31,25 +31,4 @@ input[type=text], select {
   box-sizing: border-box;
 }
 
-.search__input {
-  width: 100%;
-}
 
-.main-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.item-container {
- margin-top: 20px;
-}
-
-.item-card {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 1em;
-  margin: 1em auto;
-  width: 600px;
-  border-radius: 50px;
-  background-color: white;;
-}

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import style from '../style/item.module.css'
 
 const ResultList = ({items}) => {
 
@@ -12,8 +13,8 @@ const ResultList = ({items}) => {
   })
 
   return (
-    <div className="item-container">
-    {items.map(item => <Card key={item.id} content={item}/>)}
+    <div className={style.itemContainer}>
+    {items.map(item => <Card key={item._id} content={item}/>)}
     </div>
   )
 }
@@ -22,11 +23,12 @@ const Card = React.memo(({content}) => {
   console.log("calling Card");
   console.log("---------------");
 
-  return <div className="item-card">
-    <span className="item-card__storeName">{content.storeName}</span>
-    <span className="item-card__itemName">{content.itemName}</span>
-    <span className="item-card__itemPrice">{content.itemPrice}</span>
-    <span className="item-card__itemDesc">{content.itemDesc}</span>
+  return <div className={style.itemCard}>
+    <img src={content.imgSource} className={style.itemImage}/>
+    <span className={`${style[content.storeName]} ${style.storeName}`}>{content.storeName}</span>
+    <span className={style.itemName}>{content.itemName}</span>
+    <span className={style.itemPrice}>{content.itemPrice}</span>
+    <span className={style.itemDesc}>{content.itemDesc}</span>
   </div>
 })
 

@@ -26,47 +26,41 @@ function GrocerApp() {
       type: "FETCH_DATA_INIT"
     })
 
-    // replace this dummyfetch with the following when ready:
-    /*
-    * fetch(API).then(response => response.json()).then(results...)
-    *
-    */
+  //   fetch('http://localhost:4000/api')
+  //   .then(response => response.json())
+  //   .then(result => {
+  //     console.log("Data fetched success");
+  //     console.log(result);
+  //     console.log('---------------------')
+  //     dispatchData({
+  //       type: 'DATA_FETCH_SUCCESS',
+  //       payload: result
+  //     })
+  //   })
+  //   .catch(error => {
+  //     console.log(error);
+  //     dispatchData({
+  //       type: 'DATA_FETCH_FAILED'
+  //     })
+  //   })
 
-    fetch('http://localhost:4000/api')
-    .then(response => response.json())
-    .then(result => {
+    // ******* NOT USING ANY API BUT JUST USING TESTING DATA ******
+
+    dummyFetch()
+    .then(results => {
       console.log("Data fetched success");
-      console.log(result);
-      console.log('---------------------')
+      console.log("---------------------")
       dispatchData({
-        type: 'DATA_FETCH_SUCCESS',
-        payload: result
+        type: "DATA_FETCH_SUCCESS",
+        payload: results
       })
     })
     .catch(error => {
-      console.log(error);
+      console.log(error)
       dispatchData({
         type: 'DATA_FETCH_FAILED'
       })
     })
-
-    // ******* NOT USING ANY API BUT JUST USING TESTING DATA ******
-
-    // dummyFetch()
-    // .then(results => {
-    //   console.log("Data fetched success");
-    //   console.log("---------------------")
-    //   dispatchData({
-    //     type: "DATA_FETCH_SUCCESS",
-    //     payload: results
-    //   })
-    // })
-    // .catch(error => {
-    //   console.log(error)
-    //   dispatchData({
-    //     type: 'DATA_FETCH_FAILED'
-    //   })
-    // })
 
   }, [])
 
@@ -76,7 +70,7 @@ function GrocerApp() {
     console.log("fetching data in React.UseEffect");
     console.log("--------------------------------");
     fetchAPI();
-  }, [])
+  }, [fetchAPI])
 
   
   const handleSearch = (e) => {
@@ -85,7 +79,10 @@ function GrocerApp() {
     setSearchTerm(e.target.value);
   }
 
+  const filteredData = data.data.filter(item => item.itemName.toLowerCase().includes(searchTerm.toLowerCase()));
+
   return (
+
     <div className="main-container">
       <Header />
       <SearchForm
@@ -94,7 +91,7 @@ function GrocerApp() {
         onInputChange={handleSearch}
       />
       {data.isErrored && <p>Something went wrong</p>}
-      {data.isLoading ? <p>Loading...</p> : <ResultList items={data.data.filter(item => item.itemName.toLowerCase().includes(searchTerm.toLowerCase()))}/>}
+      {data.isLoading ? <p>Loading...</p> : <ResultList items={filteredData}/>}
     </div>
   )
 }
