@@ -12,9 +12,11 @@ const SearchForm = (
   return (
     <div className={style.searchContainer}>
       <label className={style.searchLabel} htmlFor={id}>Search: </label>
-      <input className={style.searchInput} id={id}
+      <input className={style.searchInput} 
+        id={id}
         type={type}
         value={value}
+        placeholder="what grocery item are you looking for?..."
         onChange={(e) => {onInputChange(e)}}
       />
     </div>
