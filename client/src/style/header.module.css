@@ -11,7 +11,8 @@
   top: 5px;
   left: 5px;
   bottom: 5px;
-  border: 1px solid var(--green)
+  border: 1px solid var(--green);
+  z-index: 0;
 }
 
 .header:after {
@@ -22,6 +23,7 @@
   left: 10px;
   bottom: 10px;
   border: 1px solid var(--orange);
+  z-index: 0;
 }
 
 .header > div {
@@ -32,14 +34,18 @@
   justify-content: space-between;
 }
 
+.header > div > a {
+  z-index: 2;
+}
+
 .appName {
   grid-area: appNameArea;
   text-align: center;
 }
 
 .icon {
+  z-index: 2;
   grid-area: iconArea;
-  border: 1px solid black;
   width: 35px;
   height: 35px;
   opacity: 0.8;

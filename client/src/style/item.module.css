@@ -76,6 +76,7 @@
     'itemDesc itemDesc';
     grid-gap: 20px;
     line-height: normal;
+    width: 80%;
   }
 
   .itemName, .itemPrice {
