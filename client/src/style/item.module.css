@@ -1,6 +1,10 @@
 .itemContainer {
-  padding: 2em;
-  width: 100%;
+  padding: 1em;
+  margin: 10px auto;
+  width: 80%;
+  height: 70vh;
+  border: 1px solid var(--bg-accent);
+  overflow: scroll;
  }
  
  .itemCard {
