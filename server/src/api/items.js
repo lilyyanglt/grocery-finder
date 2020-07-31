@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const { Items } = require('../model/grocerySchema');
+require('dotenv').config();
 
 const router = Router();
 
@@ -12,14 +13,22 @@ router.get('/', async (req, res, next) => {
 }
 })
 
-router.post('/', async (req, res, next) => {
-  try {
-    const newItem = new Items(req.body);
-    const createdEntry = await newItem.save();
-    res.json(createdEntry);
-  } catch (error) {
-    console.log(error);
-    res.status(416);
+/** only user with valid secret key can post to db*/
+
+router.post('/:secret', async (req, res, next) => {
+  if(req.params.secret === process.env.SECRET) {
+    try {
+      const newItem = new Items(req.body);
+      const createdEntry = await newItem.save();
+      res.json(createdEntry);
+    } catch (error) {
+      console.log(error);
+      res.status(416);
+      next(error);
+    }
+  } else {
+    const error = new Error('Not allowed to post');
+    res.status(401);
     next(error);
   }
 })

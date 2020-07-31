@@ -16,7 +16,7 @@ mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-.then( result => console.log(result))
+.then( result => console.log("Database connected!"))
 .catch(error => console.log(error.message))
 
 // middleware from third-party libraries
