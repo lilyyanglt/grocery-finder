@@ -46,6 +46,10 @@
   background-color: var(--green);
 }
 
+.superstore {
+  background-color: var(--red);
+}
+
 .itemImage {
   order: 3;
   max-width: 150px;
