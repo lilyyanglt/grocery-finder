@@ -27,7 +27,7 @@ function GrocerApp() {
   /** using React.useCallback hook */
 
   const fetchAPI = React.useCallback(async() => {
-    fetchData(dispatchData, process.env.REACT_APP_SECRET);
+    fetchData(dispatchData, process.env.REACT_APP_DATA_API);
     
     /** ENABLE THIS FOR DATA TESTING WITHOUT GOING TO ACTUAL API */
     // fetchDataTest(dispatchData);
