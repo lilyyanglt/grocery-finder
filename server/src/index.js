@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 app.use(helmet());
 app.use(morgan('combined'));
 app.use(cors({
-  origin: process.env.ORIGIN
+  origin: process.env.CORS_ORIGIN
 }));
 app.use(express.json());
 

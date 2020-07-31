@@ -5,7 +5,7 @@ require('dotenv').config();
 const router = Router();
 
 router.get('/:key', async (req, res, next) => {
-  if(req.params.key === process.env.SECRET) {
+  if(req.params.key === process.env.API_SECRET) {
     try {
       const results = await Items.find();
       res.json(results);
@@ -23,7 +23,7 @@ router.get('/:key', async (req, res, next) => {
 /** only user with valid secret key can post to db*/
 
 router.post('/:key', async (req, res, next) => {
-  if(req.params.key === process.env.SECRET) {
+  if(req.params.key === process.env.API_SECRET) {
     try {
       const newItem = new Items(req.body);
       const createdEntry = await newItem.save();
@@ -41,7 +41,7 @@ router.post('/:key', async (req, res, next) => {
 })
 
 router.delete('/:key', async (req, res, next) => {
-  if(req.params.key === process.env.SECRET) {
+  if(req.params.key === process.env.API_SECRET) {
     try {
       /* before new data adds to db, I want to make a delete call 
       * to remove stale data to prevent overloading of the db
