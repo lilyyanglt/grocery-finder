@@ -1,12 +1,12 @@
-const API = 'http://localhost:4000/api';
+const API = 'http://localhost:4000/api/';
 
-const fetchData = async (callback) => {
+const fetchData = async (callback, key) => {
   callback({
     type: "FETCH_DATA_INIT"
   })
 
   try {
-    const response = await fetch(API);
+    const response = await fetch(`${API}${key}`);
     const result = await response.json();
     console.log('fetch success');
 

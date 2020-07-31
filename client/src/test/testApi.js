@@ -515,6 +515,28 @@ export const testData = JSON.parse(`[
     "createdAt": "2020-07-29T23:39:25.682Z",
     "updatedAt": "2020-07-29T23:39:25.682Z",
     "__v": 0
+  },
+  {
+    "_id": "5f23625d98beeea152c8397a",
+    "imgSource": "https://assets.shop.loblaws.ca/products/21125124/b1/en/front/21125124_front_a01.png",
+    "storeName": "superstore",
+    "itemName": "Lean Ground Beef (500g)",
+    "itemPrice": "$7.00",
+    "itemDesc": "Canadian Beef. Yum",
+    "createdAt": "2020-07-31T00:14:21.503Z",
+    "updatedAt": "2020-07-31T00:14:21.503Z",
+    "__v": 0
+  },
+  {
+    "_id": "5f2362c598beeea152c8397b",
+    "imgSource": "https://assets.shop.loblaws.ca/products/20770591/b1/en/front/20770591_front_a01.png",
+    "storeName": "superstore",
+    "itemName": "Schneider, juicy jumbo beef wieners all beef",
+    "itemPrice": "$6.19",
+    "itemDesc": "Sausages",
+    "createdAt": "2020-07-31T00:16:05.394Z",
+    "updatedAt": "2020-07-31T00:16:05.394Z",
+    "__v": 0
   }
 ]`);
 
