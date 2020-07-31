@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# Grocery Search Engine
+# Grocery Finder
 - I always have a hard time comparing price of the different grocery items from store to store, so I created this app so I can personally use it to search for groceries and compare prizes before I make a trip out to the store. 
 
 
@@ -25,6 +25,7 @@ Initial MVP - No need to write my own REST API but instead I am using sheet.bet 
 - [x] display results of search in a list (using React)
 - [x] Simple Styling of the components to make it look good
 - [ ] Need to improve on the styling using a css framework. (bulma? Material? boostrap? or semantics ui)
+- [x] Need to fix when there's a fetch error that no results component will not show. Currently, when fetch api has error, no results component shows.
 
 ### Script for Scraping
 - [x] Use Cheerio and Axios to scrape data from a Save on Foods
@@ -37,12 +38,14 @@ Initial MVP - No need to write my own REST API but instead I am using sheet.bet 
 - [x] Connect to DB
 - [x] GET api request
 - [x] POST api request
-- [ ] DELETE api request - I want to use this route because every time before new data is posted to db, I want to remove previous data since those would be old.
-  - [ ] Not sure if this is the best way, but for an MVP, this will do for now. 
+- [x] DELETE api request - I want to use this route because every time before new data is posted to db, I want to remove previous data since those would be old.
+  - [x] Not sure if this is the best way, but for an MVP, this will do for now. 
+- [x] Protect GET route of backend api by adding secret key
 
 ### Hosting:
-- [ ] host backend api
-- [ ] host frontend
-- [ ] test
+- [x] host backend api on vercel - ensure cors origin is the production link of front-end
+- [x] host frontend on netlify
 
-
+## Attribution
+- Special thanks to:
+- [Blush](https://blush.design/) for providing the illustration I am using for the no result view when search term has no matches
