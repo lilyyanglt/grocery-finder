@@ -1,9 +1,10 @@
 const {scrapeSaveOnFoodData, scrapeWalmartData} = require('./src/script');
 const {saveOnFoods, walmart } = require('./src/constants');
 const axios = require('axios');
+require('dotenv').config();
 
-const postAPI = 'http://localhost:4000/api';
-const deleteAPI = 'http://localhost:4000/api';
+const postAPI = (process.env.NODE_ENV == 'PRODUCTION') ? process.env.API : 'http://localhost:4000/api';
+const deleteAPI = (process.env.NODE_ENV == 'PRODUCTION') ? process.env.API : 'http://localhost:4000/api';
 
 const deleteOldData = async(api) => {
   try {

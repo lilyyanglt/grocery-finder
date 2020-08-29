@@ -110,7 +110,7 @@ const postData = async(api, dbItem) => {
       await axios.post(api, dbItem);
       console.log("post success");
     } catch (error) { 
-      console.log(error.message);
+      console.log({error: error.message, item: dbItem});
     }
 }
 
