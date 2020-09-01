@@ -30,8 +30,9 @@ Initial MVP - No need to write my own REST API yet but instead I am using sheet.
 - [x] Once data is scraped, test to post to sheet.best api
 - [x] Once backend API is ready, update to post to MONGODB 
 
-### Once the basic building block is working, now build the RESTAPI to move away from Excel sheet
+### Backend
 
+- [x] Used sheet.best api for initial data layer
 - [x] Detemine the structure of db (very simple with 4 properties: storeName, itemName, itemPrice, and itemDescription)
 - [x] Connect to DB
 - [x] GET api request
