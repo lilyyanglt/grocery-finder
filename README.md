@@ -1,13 +1,19 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # Grocery Finder
-- I always had a hard time comparing prices of the different grocery items from store to store, so I created this app so I can personally use it to search for groceries and compare prices before I make a trip out to the store. This is currently an initial MVP with additional features to be added in the future. See projects tab for upcoming features that I am working on.
+
+## Problem Statement
+- I always had a hard time comparing prices of the different grocery items from store to store. Whenever I am at one store, I'll always feel like maybe in another store, it's going to be cheaper, but I can't ever tell. This app is created to solve this problem so that people can use to find grocery items they are interested in and it will show the prices of the items from the common stores like SaveOnFoods, Walmart...etc. 
 
 ## Features
 - Simple Search by grocery name
 - Data is currently limited to meat and seafood from SaveOnFoods
 
-## ToDo to achieve initial MVP:
+## Live Demo
+
+https://grocery-finder.netlify.app/
+
+## Todo to achieve initial MVP:
 
 * Initial thoughts:
 
