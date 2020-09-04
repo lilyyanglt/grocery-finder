@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { Items } = require('../model/grocerySchema');
+const { Items } = require('../../model/grocerySchema');
 require('dotenv').config();
 
 const router = Router();
