@@ -1,17 +1,24 @@
+require('dotenv').config();
+
 const { notFound, general} = require('./middleware/errorHandling');
-const { Items } = require('./model/grocerySchema');
-const itemRouter = require('./api/items');
 const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
 const mongoose = require('mongoose');
 const cors = require('cors');
-require('dotenv').config();
+
+// routers
+const userRouter = require('./routes/user');
+const itemRouter = require('./routes/api/items');
 
 // initializing the server
 const app = express();
 const PORT = process.env.PORT || 1337;
+app.listen(PORT, () => {
+  console.log(`App started on http://localhost:${PORT}`)
+})
 
+// connecting to the database
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -27,35 +34,29 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// ====== CUSTOM MIDDLEWARE =================================
+// ====== CUSTOM MIDDLEWARE FOR HANDLING ROUTES =============
 app.use('/api', itemRouter);
+app.use('/users', userRouter);
 
-// ====== ROUTES ============================
+// ====== ROUTES ============================================
 app.get('/', (req, res) => {
-  Items.find((err, result) => {
-    if(!err) {
-      console.log(result);
-    } else {
-      console.log(err);
-    }
-  })
-  res.json({
-    message: "hello world"
-  })
+  res.json({message: "Welcome to grocery api"})
 })
 
-// ========== END OF STACK MIDDLEWARE =======================
-// error handler - not found middleware - should always be 
-// the last of the middleware in the queue
-// this is specifically for "not found" error
+// ====== END OF STACK MIDDLEWARE ===========================
+/**
+ * Not found middleware - when path requested is not valid
+ */
+
 app.use(notFound);
-// this is for all generic error - if there's a database error
-// or server error, it will come to this one
+
+/**
+ * All other errors encountered will hit this middleware
+ * to provide information to users
+ */
 app.use(general);
 
-app.listen(PORT, () => {
-  console.log(`App started on http://localhost:${PORT}`)
-})
+
 
 
 
