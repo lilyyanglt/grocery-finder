@@ -1,10 +1,3 @@
-.itemContainer {
-  padding: 1em;
-  margin: 10px auto;
-  height: 65vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
- }
  
  .itemCard {
   display: flex;
@@ -73,15 +66,26 @@
   grid-area: itemDesc;
 }
 
+.addToFav {
+  position: absolute;
+  right: 1em;
+  border: 1px solid var(--yellow);
+  border-radius: 5px;
+}
+
+.addToFav.added {
+  background-color: var(--yellow);
+}
+
  @media screen and (min-width: 800px) {
  
   .itemCard {
     display: grid;
     grid-template-areas: 
-    'storeName itemName'
-    'itemImage itemPrice'
-    'itemImage itemPrice'
-    'itemDesc itemDesc';
+    'storeName itemName fav'
+    'itemImage itemImage itemPrice'
+    'itemImage itemImage itemPrice '
+    'itemDesc itemDesc itemDesc';
     grid-gap: 20px;
     line-height: normal;
     width: 80%;
@@ -117,6 +121,10 @@
      grid-area: itemPrice;
    }
    
+   .addToFav {
+     grid-area: fav;
+   }
+
   .itemDesc {
     display: block;
   }
