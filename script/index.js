@@ -3,8 +3,13 @@ const {saveOnFoods, walmart } = require('./src/constants');
 const axios = require('axios');
 require('dotenv').config();
 
-const postAPI = (process.env.NODE_ENV == 'PRODUCTION') ? process.env.API : 'http://localhost:4000/api';
-const deleteAPI = (process.env.NODE_ENV == 'PRODUCTION') ? process.env.API : 'http://localhost:4000/api';
+const postAPI = (process.env.NODE_ENV == 'PRODUCTION') ? 
+process.env.API : 
+`http://localhost:4000/api/${process.env.SECRET}`;
+
+const deleteAPI = (process.env.NODE_ENV == 'PRODUCTION') 
+? process.env.API : 
+`http://localhost:4000/api/${process.env.SECRET}`;
 
 const deleteOldData = async(api) => {
   try {
