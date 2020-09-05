@@ -3,6 +3,8 @@ const fetchData = async (callback, url) => {
     type: "FETCH_DATA_INIT"
   })
 
+  console.log(url);
+
   try {
     const response = await fetch(url);
     const result = await response.json();

@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GrocerApp from './GrocerApp';
+import App from './App';
+import {BrowserRouter} from 'react-router-dom'
 
 ReactDOM.render(
-  <GrocerApp />,
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

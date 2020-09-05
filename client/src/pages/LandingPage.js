@@ -1,18 +1,19 @@
 import React from 'react';
-import dataReducer from './util/reducer';
-import useLocalStorage from './util/useLocalStorage';
+import dataReducer from '../util/reducer';
+import useLocalStorage from '../util/useLocalStorage';
 import {
-  Header, 
+  Header,
   SearchForm, 
   ResultList, 
-  Footer,
-  LoadingError } from './components/index';
+  LoadingError } from '../components/index';
 import ReactLoading from 'react-loading';
-import fetchData from './util/api.js';
-import fetchDataTest from './test/testApi';
-import './style/main.css'
+import fetchData from '../util/api.js';
+import fetchDataTest from '../test/testApi';
+import '../style/main.css'
 
-function GrocerApp() {
+function LandingPage(props) {
+  console.log("This is props");
+  console.log(props);
   console.log("Grocery App called");
   console.log("-------------------");
 
@@ -27,7 +28,9 @@ function GrocerApp() {
   /** using React.useCallback hook */
 
   const fetchAPI = React.useCallback(async() => {
-    // fetchData(dispatchData, process.env.REACT_APP_DATA_API);
+    // let url = (process.env.REACT_APP_NODE_ENV === 'development') ? process.env.REACT_APP_DEVELOPMENT_API : process.env.REACT_APP_DATA_API;
+    // console.log(url);
+    // fetchData(dispatchData, url);
     
     /** ENABLE THIS FOR DATA TESTING WITHOUT GOING TO ACTUAL API */
     fetchDataTest(dispatchData);
@@ -54,7 +57,6 @@ function GrocerApp() {
   return (
 
     <div className="main-container">
-      <Header />
       <SearchForm
         id="search"
         value={searchTerm} 
@@ -62,11 +64,10 @@ function GrocerApp() {
       />
       {data.isErrored && <LoadingError />}
       {data.isLoading 
-      ? <ReactLoading className="loading" type="spinningBubbles" color="#0ABDA0" height={100} width={50} />
+      ? <ReactLoading className="loading" type="spinningBubbles" color="#3CDFD5" height={100} width={50} />
       : <ResultList isErrored={data.isErrored} term={searchTerm} items={filteredData}/>}
-      <Footer />
     </div>
   )
 }
 
-export default GrocerApp;
+export default LandingPage;
