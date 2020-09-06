@@ -2,7 +2,6 @@ import React from 'react';
 import dataReducer from '../util/reducer';
 import useLocalStorage from '../util/useLocalStorage';
 import {
-  Header,
   SearchForm, 
   ResultList, 
   LoadingError } from '../components/index';
