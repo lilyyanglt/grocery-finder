@@ -59,7 +59,11 @@ router.get('/loginStat', (req, res) => {
   }
 })
 
-// handle for updating user shopping list with items
+/**
+ * handle for updating user shopping list with items
+ * :id is the userid
+ * just need to add the id is sufficient
+ *  */ 
 
 router.put('/addItem/:id', (req, res, next) => {
   const newItem = req.body
@@ -89,12 +93,28 @@ router.put('/addItem/:id', (req, res, next) => {
       next(err)
     }
   })
+})
 
-  // find user in db based on id
-  // get the new item from the req.body
-  // once found, take current shopping list
-  // append new item to current shopping list
-  // update user's shopping list with the new list
+/**
+ * @route GET /user/getShoppingList will return a json of the user's shopping list
+ */
+router.get('/getShoppingList/:userId', (req, res) => {
+  const userId = req.params.userId
+  User.findOne({_id: userId})
+  .then(user => {
+    if(user) {
+      res.json({
+        userList: user.shoppingList,
+      errored: false})
+    } else {
+      res.json({message: "User not found",
+    errored: true})
+    }
+  })
+  .catch((err) => {
+    res.json({message: err.message,
+    errored: true})
+  })
 })
 
 module.exports = router;
