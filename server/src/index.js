@@ -2,10 +2,14 @@ require('dotenv').config();
 
 const { notFound, general} = require('./middleware/errorHandling');
 const express = require('express');
+const cookieSession = require('cookie-session');
+const cookieParser = require('cookie-parser')
 const morgan = require('morgan');
 const helmet = require('helmet');
 const mongoose = require('mongoose');
 const cors = require('cors');
+
+const passport = require('passport');
 
 // routers
 const userRouter = require('./routes/user');
@@ -30,13 +34,27 @@ mongoose.connect(process.env.MONGODB_URI, {
 app.use(helmet());
 app.use(morgan('combined'));
 app.use(cors({
-  origin: process.env.CORS_ORIGIN
+  origin: process.env.CORS_ORIGIN,
+  credentials: true
 }));
 app.use(express.json());
+app.set("trust proxy", 1)
+app.use(
+  cookieSession({
+  name: "session",
+  keys: [process.env.SESSION_SECRET],
+  maxAge: 24 * 60 * 60 * 1000
+}))
+app.use(cookieParser());
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('../src/middleware/passport_google')(passport);
 
 // ====== CUSTOM MIDDLEWARE FOR HANDLING ROUTES =============
 app.use('/api', itemRouter);
-app.use('/users', userRouter);
+app.use('/user', userRouter);
 
 // ====== ROUTES ============================================
 app.get('/', (req, res) => {
