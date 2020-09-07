@@ -1,9 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from '../style/login.module.css'
-import * as types from '../util/types'
 
-function Login({userState, updateUser}) {
+function Login() {
 
   const handleLogin = () => {
     window.open("http://localhost:4000/user/auth/google", "_self")

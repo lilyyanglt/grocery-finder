@@ -5,9 +5,7 @@ import { Link } from 'react-router-dom'
 
 
 function Header({userState}) {
- console.log("Header component being rendered")
-  console.log(userState.authenticated);
-  console.log("----------------------")
+
 
   const handleSignOut = () => {
     window.open("http://localhost:4000/user/logout", "_self");

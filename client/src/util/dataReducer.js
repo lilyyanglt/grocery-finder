@@ -1,8 +1,7 @@
 import  * as types from './types'
 
 const dataReducer = (currentState, action) => {
-  console.log("Calling reducer");
-  console.log("-----------------")
+  
   switch (action.type) {
     case types.DATA_INIT:
       return {

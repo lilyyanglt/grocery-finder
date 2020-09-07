@@ -1,14 +1,13 @@
 import React from 'react'
 import style from '../style/card.module.css'
-import { Redirect } from 'react-router-dom'
 
-const Card = (({content, 
+const Card = (({
+  content, 
   updateList,
-userState}) => {
-  console.log("calling Card");
-  console.log("---------------");
-
+  userState}) => {
+    
   const handleClick = () => {
+    
     if (userState.authenticated) {
       updateList(content)
     } else {

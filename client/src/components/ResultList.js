@@ -10,9 +10,6 @@ isErrored,
 updateList,
 userState}) => {
 
-  console.log("results list being called");
-  console.log("------------------------");
-
   // TODO: add sorting function here
 
   return (
@@ -32,10 +29,6 @@ userState}) => {
 }
 
 const NoResult = ({term, isErrored}) => {
-  console.log("calling no results component");
-  console.log(isErrored);
-  console.log(noResultStyle);
-  console.log("-----------------------------")
   return (
     <div className={`${noResultStyle.noResult} ${isErrored && noResultStyle.noshow}`}>
       <p className={noResultStyle.text}>

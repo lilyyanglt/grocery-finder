@@ -10,8 +10,8 @@ const userStatusReducer = (currentState, action) => {
     case types.USER_LOGIN_SUCCESS:
       return {
         ...currentState,
-        shoppingList: action.payload.shoppingList,
-        userId: action.payload._id,
+        shoppingList: action.payload.list,
+        userId: action.payload.id,
         loggingIn: false,
         authenticated: true
       };
@@ -22,12 +22,18 @@ const userStatusReducer = (currentState, action) => {
         loggingIn: false,
         authenticated: false
       };
-    case types.USER_SHOPPINGLIST_UPDATE:
+    case types.USER_SHOPPINGLIST_UPDATE_SUCCESS:
       return {
         ...currentState,
         loginErrored: false,
         loggingIn: false,
         shoppingList: action.payload
+      }
+
+    case types.USER_SHOPPINGLIST_UPDATE_FAILED:
+      return {
+        ...currentState,
+        updateErrored: true
       }
     default: 
       throw new Error()
