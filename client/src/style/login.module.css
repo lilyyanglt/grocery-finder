@@ -7,6 +7,12 @@
   height: 300px;
   justify-content: space-between;
   align-items: center;
+  padding: 1em;
+  border-radius: 10px;
+}
+
+.loginSection > p {
+  text-align: center;
 }
 
 .googleBtn {
@@ -14,4 +20,22 @@
   border: 1px solid black;
   padding: 1em;
   border-radius: 5px;
+  background-color: white;
+  transition: all 0.3 linear;
+}
+
+.googleBtn:hover {
+  background-color: var(--red);
+  color: white;
+  border: none;
+}
+
+@media screen and (min-width: 800px) {
+
+  .loginSection {
+    width: 50%;
+    margin: auto;
+    margin-top: 20rem;
+  }
+
 }

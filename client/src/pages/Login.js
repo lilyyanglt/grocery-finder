@@ -9,12 +9,12 @@ function Login() {
   }
 
   return <div className={styles.loginSection}>
-    <h2>Login or Sign-up with: </h2>
-    <span className={styles.googleBtn}
-    onClick={handleLogin}>Google</span>
+    <p>You need to sign in first before you can add favorites to your shopping list.</p>
+    <h3>Login or Sign-up with: </h3>
+    <button type="button" className={styles.googleBtn}
+    onClick={handleLogin}>Google</button>
     <Link to="/">Back</Link>
 
-    <p>why sign in? You need to sign in first before you can add items to your favorites which is going to become your shopping list</p>
   </div>
 }
 

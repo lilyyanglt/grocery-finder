@@ -36,6 +36,16 @@
 
 .signInBtn {
   text-decoration: none;
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: tomato;
+  box-shadow: var(--shadow);
+}
+
+.signOutBtn {
+  text-decoration: none;
   color: black;
   padding: 0.5rem;
   border-radius: 5px;
