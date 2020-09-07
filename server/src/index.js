@@ -3,7 +3,8 @@ require('dotenv').config();
 const { notFound, general} = require('./middleware/errorHandling');
 const express = require('express');
 const cookieSession = require('cookie-session');
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
+const apiRateLimit = require('express-rate-limit');
 const morgan = require('morgan');
 const helmet = require('helmet');
 const mongoose = require('mongoose');
@@ -33,6 +34,13 @@ mongoose.connect(process.env.MONGODB_URI, {
 // middleware from third-party libraries
 app.use(helmet());
 app.use(morgan('combined'));
+// Allow 50 requests every 15 minutes
+app.use(
+	apiRateLimit({
+		windowMs: 15 * 60 * 1000,
+		max: 50,
+	})
+);
 app.use(cors({
   origin: process.env.CORS_ORIGIN,
   credentials: true
@@ -43,7 +51,8 @@ app.use(
   cookieSession({
   name: "session",
   keys: [process.env.SESSION_SECRET],
-  maxAge: 24 * 60 * 60 * 1000
+  // session expires after 30 minutes of inactivity
+  maxAge: 30 * 60 * 1000
 }))
 app.use(cookieParser());
 
