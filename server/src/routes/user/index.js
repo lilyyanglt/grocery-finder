@@ -96,6 +96,35 @@ router.put('/addItem/:id', (req, res, next) => {
 })
 
 /**
+ * @route PUT /user/removeItem will remote the item from the user's shopping list
+ */
+
+ router.put('/removeItem/:userId', (req, res) => {
+   const userId = req.params.userId
+   const itemIdToBeRemoved = req.body._id
+   User.findOne({_id: userId})
+   .then(user => {
+    if (user) {
+      let list = user.shoppingList;
+      list = list.filter((item) => {
+          return item !== itemIdToBeRemoved
+      })
+
+      User.findOneAndUpdate({_id: userId}, {shoppingList: list})
+      .then(user => res.json({message: "updated", errored: false}))
+      .catch(err => res.json({message: err.message, errored: true}))
+
+    } else {
+      res.json({message: "User not found",
+      errored: true})
+    }
+   })
+   .catch(err => {
+    res.json({message: err.message, errored: true})
+   })
+ })
+
+/**
  * @route GET /user/getShoppingList will return a json of the user's shopping list
  */
 router.get('/getShoppingList/:userId', (req, res) => {
