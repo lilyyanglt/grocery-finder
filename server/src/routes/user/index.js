@@ -81,10 +81,7 @@ router.put('/addItem/:id', (req, res, next) => {
             listUpdated: true
           })
         } else {
-          res.json({
-            message: "Added failure",
-            listUpdated: false
-          })
+          next(new Error("User is not found, so can't update"))
         }
       })
       .catch(err => next(err))
@@ -99,7 +96,7 @@ router.put('/addItem/:id', (req, res, next) => {
  * @route PUT /user/removeItem will remote the item from the user's shopping list
  */
 
- router.put('/removeItem/:userId', (req, res) => {
+ router.put('/removeItem/:userId', (req, res, next) => {
    const userId = req.params.userId
    const itemIdToBeRemoved = req.body._id
    User.findOne({_id: userId})
@@ -112,37 +109,31 @@ router.put('/addItem/:id', (req, res, next) => {
 
       User.findOneAndUpdate({_id: userId}, {shoppingList: list})
       .then(user => res.json({message: "updated", errored: false}))
-      .catch(err => res.json({message: err.message, errored: true}))
+      .catch(err => next(err))
 
     } else {
-      res.json({message: "User not found",
-      errored: true})
+      res.status(404)
+      next(new Error("User not found"))
     }
    })
    .catch(err => {
-    res.json({message: err.message, errored: true})
+    next(err)
    })
  })
 
 /**
  * @route GET /user/getShoppingList will return a json of the user's shopping list
  */
-router.get('/getShoppingList/:userId', (req, res) => {
+router.get('/getShoppingList/:userId', (req, res, next) => {
   const userId = req.params.userId
   User.findOne({_id: userId})
   .then(user => {
-    if(user) {
       res.json({
         userList: user.shoppingList,
       errored: false})
-    } else {
-      res.json({message: "User not found",
-    errored: true})
-    }
   })
   .catch((err) => {
-    res.json({message: err.message,
-    errored: true})
+    next(err)
   })
 })
 
