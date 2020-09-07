@@ -6,7 +6,9 @@ import noResultImg from '../asset/noResult.png';
 
 const ResultList = ({items, 
   term,
-isErrored}) => {
+isErrored,
+updateList,
+userState}) => {
 
   console.log("results list being called");
   console.log("------------------------");
@@ -17,7 +19,10 @@ isErrored}) => {
     <div className={style.itemContainer}>
     {items.length ?
     <>
-    {items.map(item => <Card key={item._id} content={item}/>)}
+    {items.map(item => <Card key={item._id} 
+    content={item} 
+    updateList={updateList}
+    userState={userState}/>)}
     </> 
     :
     <NoResult isErrored={isErrored} term={term}/>

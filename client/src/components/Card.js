@@ -1,14 +1,19 @@
 import React from 'react'
 import style from '../style/card.module.css'
+import { Redirect } from 'react-router-dom'
 
-const Card = (({content}) => {
+const Card = (({content, 
+  updateList,
+userState}) => {
   console.log("calling Card");
   console.log("---------------");
 
-  const [isAdded, setIsAdded] = React.useState(false);
-
-  const add = () => {
-    setIsAdded(!isAdded);
+  const handleClick = () => {
+    if (userState.authenticated) {
+      updateList(content)
+    } else {
+      window.open("http://localhost:3000/login", "_self")
+    }
   }
 
   return <div className={style.itemCard}>
@@ -17,8 +22,8 @@ const Card = (({content}) => {
             <span className={style.itemName}>{content.itemName}</span>
             <span className={style.itemPrice}>{content.itemPrice}</span>
             <span className={style.itemDesc}>{content.itemDesc}</span>
-            <div className={`${style.addToFav} ${isAdded && style.added}`}
-            onClick={add}>fav</div>
+            <div className={`${style.addToFav} ${content.isAdded && style.added}`}
+            onClick={handleClick}>fav</div>
           </div>
 })
 

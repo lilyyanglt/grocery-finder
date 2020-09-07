@@ -1,0 +1,17 @@
+.loginSection {
+  margin: 10rem 4rem 2rem;
+  border: 1px solid var(--pale-white);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.googleBtn {
+  display: inline-block;
+  border: 1px solid black;
+  padding: 1em;
+  border-radius: 5px;
+}

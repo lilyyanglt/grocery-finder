@@ -4,14 +4,25 @@ import githubIcon from '../asset/github.svg'
 import { Link } from 'react-router-dom'
 
 
-function Header() {
- 
+function Header({userState}) {
+ console.log("Header component being rendered")
+  console.log(userState.authenticated);
+  console.log("----------------------")
+
+  const handleSignOut = () => {
+    window.open("http://localhost:4000/user/logout", "_self");
+  }
+
   return (
     <header className={style.header}>
       <h1 className={style.appName}>Grocery Finder</h1>
       <div>
         <ul>
-          <Link to="/login">Sign in</Link>
+          {userState.authenticated ? 
+          <span onClick={handleSignOut}>Sign out</span> :
+          <Link to="/login">Sign in</Link> 
+          }
+          
         </ul>
       </div>
       <a className={style.iconLink} href="https://github.com/lilyyanglt/grocery-search-engine/"><img className={style.icon} src={githubIcon} /></a>

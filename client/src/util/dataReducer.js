@@ -1,19 +1,21 @@
+import  * as types from './types'
+
 const dataReducer = (currentState, action) => {
   console.log("Calling reducer");
   console.log("-----------------")
   switch (action.type) {
-    case 'FETCH_DATA_INIT':
+    case types.DATA_INIT:
       return {
         ...currentState,
         isLoading: true
       };
-    case 'DATA_FETCH_SUCCESS':
+    case types.DATA_FETCH_SUCCESS:
       return {
         ...currentState,
         data: action.payload,
         isLoading: false
       };
-    case 'DATA_FETCH_FAILED':
+    case types.DATA_FETCH_FAILED:
       return {
         ...currentState,
         isErrored: true,

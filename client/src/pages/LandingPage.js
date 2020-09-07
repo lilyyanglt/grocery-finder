@@ -7,8 +7,12 @@ import {
 import ReactLoading from 'react-loading';
 import '../style/main.css'
 
-function LandingPage({data}) {
+function LandingPage({data, 
+  userState,
+updateList}) {
   console.log("Grocery App called");
+  console.log(userState);
+  console.log(data);
   console.log("-------------------");
 
   const [searchTerm, setSearchTerm] = useLocalStorage('search', '');
@@ -20,7 +24,18 @@ function LandingPage({data}) {
     setSearchTerm(e.target.value);
   }
 
-  const filteredData = data.data.filter(item => item.itemName.toLowerCase().includes(searchTerm.toLowerCase()));
+  let filteredData = data.data.filter(item => item.itemName.toLowerCase().includes(searchTerm.toLowerCase()));
+
+  if (userState.authenticated) {
+
+    for (let item of filteredData) {
+      for (let userItem of userState.shoppingList) {
+        if (item._id === userItem) {
+          item.isAdded = true
+        }
+      }
+    }
+  }
 
   return (
 
@@ -34,9 +49,11 @@ function LandingPage({data}) {
       {data.isLoading 
       ? <ReactLoading className="loading" type="spinningBubbles" color="#3CDFD5" height={100} width={50} />
       : <ResultList 
+        userState={userState}
         isErrored={data.isErrored} 
         term={searchTerm} 
-        items={filteredData}/>
+        items={filteredData}
+        updateList={updateList}/>
       }
     </div>
   )
