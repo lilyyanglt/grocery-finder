@@ -32,9 +32,6 @@ function App() {
       }
     })
     .then(response => {
-      console.log("useEffect for userState");
-      console.log(response.status);
-      console.log("-----------------------")
       if (response.status === 200) return response.json()
       else dispatchUser({type: types.USER_LOGIN_FAILED})
     })
