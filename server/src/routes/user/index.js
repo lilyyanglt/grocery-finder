@@ -15,12 +15,12 @@ router.get('/auth/google/callback',
 passport.authenticate('google', {failureRedirect: '/user/auth/login/failed'}),
 (req, res) => {
   console.log("Calling /auth/google/callback");
-  res.redirect('http://localhost:4000/user/auth/login/success');
+  res.redirect('http://localhost:3000/');
 })
 
 router.get('/logout', (req, res) => {
   req.logout();
-  res.redirect('http://localhost:4000/user/loginStat');
+  res.redirect('http://localhost:3000/');
 })
 
 router.get('/auth/login/failed', (req, res) => {
