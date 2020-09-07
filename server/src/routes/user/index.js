@@ -33,11 +33,18 @@ router.get('/auth/login/failed', (req, res) => {
 router.get('/auth/login/success', (req, res, next) => {
   console.log(req.user);
   if (req.user) {
-    res.json({
-      loginSuccess: true,
-      user: req.user,
-      message: "User logged in successfully"
+    User.findOne({_id: req.user._id})
+    .then(user => {
+      res.json({
+        loginSuccess: true,
+        user: {
+          id: user._id,
+          list: user.shoppingList
+        },
+        message: "User logged in successfully"
+      })
     })
+    .catch(err => next(err))
   } else {
     const error = new Error("auth/login/success doesn't have user")
     next(error)
@@ -125,16 +132,16 @@ router.put('/addItem/:id', (req, res, next) => {
  * @route GET /user/getShoppingList will return a json of the user's shopping list
  */
 router.get('/getShoppingList/:userId', (req, res, next) => {
-  const userId = req.params.userId
-  User.findOne({_id: userId})
-  .then(user => {
-      res.json({
-        userList: user.shoppingList,
-      errored: false})
-  })
-  .catch((err) => {
-    next(err)
-  })
+    const userId = req.params.userId
+    User.findOne({_id: userId})
+    .then(user => {
+        res.json({
+          userList: user.shoppingList,
+        errored: false})
+    })
+    .catch((err) => {
+      next(err)
+    })
 })
 
 module.exports = router;
