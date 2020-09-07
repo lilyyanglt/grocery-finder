@@ -12,7 +12,7 @@
 
 .searchLabel {
   padding-right: 1rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: var(--header-text);
   font-weight: 500;
 }
@@ -24,4 +24,13 @@ input[type=text], select {
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
+  outline: tomato;
+}
+
+
+@media screen and (min-width: 800px) {
+
+  .searchContainer {
+    max-width: 70%;
+  }
 }
