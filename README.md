@@ -3,17 +3,58 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # Grocery Finder
 
 ## Problem Statement
-- I always had a hard time comparing prices of the different grocery items from store to store. Whenever I am at one store, I'll always feel like maybe in another store, it's going to be cheaper, but I can't ever tell. This app is created to solve this problem so that people can use to find grocery items they are interested in and it will show the prices of the items from the common stores like SaveOnFoods, Walmart...etc. 
+- I always had a hard time comparing prices of the different grocery items from store to store. Whenever I am at one store, I'll always feel like maybe the item is cheaper in another store, but in order to find out, I might have to visit each site of different stores to compare manually. This app is created to solve this problem so that people can use to find grocery items they are interested in by a simple search and it will show the prices from different stores arranged from the cheapest to the more expensive.
 
-## Features
+## Attribution
+
+Special thanks to:
+- [Blush](https://blush.design/) for providing the illustration I am using for the no result view when search term has no matches
+- [Canva](https://www.canva.com/) for icon design
+- [CodingGarden](https://www.youtube.com/channel/UCLNgu_OupwoeESgtab33CCw) for his tutorials on fullstack react application and web scraping with cheerios so I can learn the techniques to build my application
+  - https://www.youtube.com/watch?v=5pQsl9u_10M&t=4458s
+  - https://www.youtube.com/watch?v=6R7u6EMWaa4&t=2601s
+- [Tutorial for setting up twitter authentication](https://github.com/leannezhang/twitter-authentication) - I learned from her approach to implement my google login authentication
+
+## Demo
+* Here's a demo of what the app looks like. This is version 2.0 demo completed on Sept 7, 2020.
+
+![link](./demo/grocery_app_demo.gif)
+
+## Change Log
+
+### Version next
+- Features to be included:
+  - Filter by favorites
+  - sort items by lowest price
+  - other stores available
+  - etc.
+
+### Version 2.0 (Deployed)
+Total time taken to build this: ~5 days. (Sept 2020)
+
+- Implemented login with google
+- Added Login routes
+- Updated backend with the ability to add or remove items from favorites
+- Updated frontend with add or remove items from favorites
+
+### Version 1.0 (Deployed to production)
+Total time taken to build this: ~ 4 weeks including learning React and building this. (July 2020)
+
 - Simple Search by grocery name
 - Data is currently limited to meat and seafood from SaveOnFoods
 
-## Live Demo
+## Tools and Technologies:
 
-https://grocery-finder.netlify.app/
+- React
+- Node/Express
+- MongoDB Atlas
+- Passport (Google Strategy)
+- Cheerios / Puppeteer
+- Netlify
+- Vercel
 
-## Todo to achieve initial MVP:
+
+## Tasks to achieve initial MVP (Version 1.0):
 
 * Initial thoughts:
 
@@ -51,10 +92,3 @@ Initial MVP - No need to write my own REST API yet but instead I am using sheet.
 - [x] host backend api on vercel - ensure cors origin is the production link of front-end
 - [x] host frontend on netlify
 
-## Attribution
-
-Special thanks to:
-- [Blush](https://blush.design/) for providing the illustration I am using for the no result view when search term has no matches
-- [CodingGarden](https://www.youtube.com/channel/UCLNgu_OupwoeESgtab33CCw) for his tutorials on fullstack react application and web scraping with cheerios
-  - https://www.youtube.com/watch?v=5pQsl9u_10M&t=4458s
-  - https://www.youtube.com/watch?v=6R7u6EMWaa4&t=2601s
