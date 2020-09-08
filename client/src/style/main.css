@@ -5,14 +5,16 @@
   --blue: #3273DC;
   --red:#F2452B;
   --orange: orange;
+  --yellow: #F5C401;
   --pale-white: #F2F1D9;
   --bg-accent: #484a4d;
   --primary: #F28A30;
-  --header-text: #EBF2EA;
-  --header-background: #0ABDA0;
+  --header-text: black;
+  --header-background: #3CDFD5;
   --loading-message-color: #24305E;
   --loading-message-font: 1.5rem;
   --loading-message-font-mobile: 1rem;
+  --shadow: 0 1px 4px 1px rgba(0, 0, 0, .1);
 }
 
 * {

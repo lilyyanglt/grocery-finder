@@ -10,7 +10,11 @@ const itemSchema = new mongoose.Schema({
   itemName: stringType,
   itemPrice: stringType,
   itemDesc: stringType,
-  imgSource: stringType
+  imgSource: stringType,
+  isAdded: {
+    type: Boolean,
+    default: false,
+  }
 }, {timestamps: true});
 
 const Items = mongoose.model("Items", itemSchema);

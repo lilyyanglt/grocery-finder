@@ -7,8 +7,7 @@ const SearchForm = (
     value, 
     onInputChange
   }) => {
-    console.log("Search form component called");
-    console.log("----------------------");
+  
   return (
     <div className={style.searchContainer}>
       <label className={style.searchLabel} htmlFor={id}>Search: </label>

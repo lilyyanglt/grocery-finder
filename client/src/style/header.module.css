@@ -3,33 +3,73 @@
   height: 120px;
   position: relative;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
   background-color: var(--header-background);
   color: var(--header-text);
 }
 
-.header svg {
+.header > svg {
   position: absolute;
   z-index: -1;
-  top: 119px;
+  top: 7rem;
   left: 0;
 }
 
-.appName {
-  text-align: center;
+.btns {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.iconImage {
+  width: 15em;
+  margin-top: 0.4em;
 }
 
 .icon {
+
   width: 35px;
   height: 35px;
-  opacity: 0.5;
 }
 
+.signInBtn {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: tomato;
+  box-shadow: var(--shadow);
+}
+
+.signOutBtn {
+  text-decoration: none;
+  color: black;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: var(--shadow);
+}
 
 @media screen and (min-width: 800px) {
   .header {
-    flex-direction: column;
-    align-items: center;
+   flex-direction: row;
+   justify-content: space-between;
+  }
+
+  .btns {
+    order: 1;
+    width: 150px;
+  }
+
+  .iconLink {
+    order: 1;
+  }
+
+  .header > svg {
+    top: 1rem;
   }
 }
 
