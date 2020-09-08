@@ -38,7 +38,7 @@ app.use(morgan('combined'));
 app.use(
 	apiRateLimit({
 		windowMs: 15 * 60 * 1000,
-		max: 50,
+		max: 100,
 	})
 );
 app.use(cors({
