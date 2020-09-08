@@ -1,6 +1,7 @@
 import React from 'react'
 import style from '../style/card.module.css'
 
+
 const Card = (({
   content, 
   updateList,
@@ -22,7 +23,7 @@ const Card = (({
             <span className={style.itemPrice}>{content.itemPrice}</span>
             <span className={style.itemDesc}>{content.itemDesc}</span>
             <div className={`${style.addToFav} ${content.isAdded && style.added}`}
-            onClick={handleClick}>fav</div>
+            onClick={handleClick}><span>Add</span></div>
           </div>
 })
 
