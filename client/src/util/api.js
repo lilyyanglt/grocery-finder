@@ -40,7 +40,7 @@ const updateShoppingList = (server_domain, content, updateRoute, userId, callbac
   })
   .then(info => {
     console.log(info)
-    axios.get(`${server_domain}/user/getShoppingList/${userId}`)
+    axios.get(`${server_domain}/getShoppingList/${userId}`)
     .then(result => {
      
       callback({type: types.USER_SHOPPINGLIST_UPDATE_SUCCESS, payload: result.data.userList})

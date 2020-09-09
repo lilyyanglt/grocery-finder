@@ -42,12 +42,3 @@ const userStatusReducer = (currentState, action) => {
 
 
 export default userStatusReducer;
-/**
- *  const [userState, dispatchUser] = React.useReducer(userStatusReducer, {
-    isLoggedIn: false,
-    shoppingList: [],
-    userId: null,
-    logginIn: false,
-    loginErrored: false
-  })
- */
