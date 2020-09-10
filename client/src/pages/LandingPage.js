@@ -10,8 +10,9 @@ import { fetchData } from '../util/api.js';
 import fetchDataTest from '../test/testApi'
 import '../style/main.css'
 
-const SERVER_API = (process.env.REACT_APP_NODE_ENV === 'development') ? process.env.REACT_APP_DEV_DATA_API : process.env.REACT_APP_PROD_DATA_API;
+const SERVER_API = (process.env.NODE_ENV === 'development') ? process.env.REACT_APP_DEV_DATA_API : process.env.REACT_APP_PROD_DATA_API;
 
+console.log(SERVER_API)
 
 function LandingPage({  
   userState,

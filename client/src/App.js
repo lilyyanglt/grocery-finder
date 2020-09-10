@@ -6,7 +6,7 @@ import userStatusReducer from './util/userStatusReducer'
 import { updateShoppingList } from './util/api'
 import * as types from "./util/types"
 
-const SERVER_USER_API = (process.env.REACT_APP_NODE_ENV === 'development') ? process.env.REACT_APP_DEV_USER_API : process.env.REACT_APP_PROD_USER_API
+const SERVER_USER_API = (process.env.NODE_ENV === 'development') ? process.env.REACT_APP_DEV_USER_API : process.env.REACT_APP_PROD_USER_API
 
 function App() {
 

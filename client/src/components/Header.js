@@ -4,12 +4,13 @@ import githubIcon from '../asset/github.svg'
 import icon from '../asset/grocery_finder_icon.png'
 import { Link } from 'react-router-dom'
 
+const LOGOUT_URL = (process.env.NODE_ENV === 'development') ? process.env.REACT_APP_DEV_USER_API : process.env.REACT_APP_PROD_USER_API
 
 function Header({userState}) {
 
 
   const handleSignOut = () => {
-    window.open("http://localhost:4000/user/logout", "_self");
+    window.open(`${LOGOUT_URL}/logout`, "_self");
   }
 
   return (
