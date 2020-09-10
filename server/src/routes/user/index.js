@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const passport = require('passport');
 const User = require('../../model/userSchema');
+const URL = (process.env.NODE_ENV === 'development') ? "http://localhost:3000" : 
+"https://grocery-finder.netlify.app";
 
 router.get('/', (req, res) => {
   res.json({message: `${req.url} is valid`});
@@ -15,12 +17,12 @@ router.get('/auth/google/callback',
 passport.authenticate('google', {failureRedirect: '/user/auth/login/failed'}),
 (req, res) => {
   console.log("Calling /auth/google/callback");
-  res.redirect('http://localhost:3000/');
+  res.redirect(URL)
 })
 
 router.get('/logout', (req, res) => {
   req.logout();
-  res.redirect('http://localhost:3000/');
+  res.redirect(URL);
 })
 
 router.get('/auth/login/failed', (req, res) => {
@@ -47,7 +49,7 @@ router.get('/auth/login/success', (req, res, next) => {
     .catch(err => next(err))
   } else {
     const error = new Error("auth/login/success doesn't have user")
-    next(error)
+    next(error);
   }
 })
 
