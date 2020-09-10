@@ -4,15 +4,25 @@ const User = require('../../model/userSchema');
 const URL = (process.env.NODE_ENV === 'development') ? "http://localhost:3000" : 
 "https://grocery-finder.netlify.app";
 
+/**
+ * @route GET /user - just a validation url to ensure get user route is valid 
+ */
 router.get('/', (req, res) => {
   res.json({message: `${req.url} is valid`});
 })
 
+
+/**
+ * @route GET /user/auth/google - route that redirects to google login page
+ */
 router.get('/auth/google', 
 passport.authenticate('google', {
   scope: ["profile"]
 }))
 
+/**
+ * @route GET /user/auth/google/callback - route that is required to determine route google will send to once login is successful or failed
+ */
 router.get('/auth/google/callback',
 passport.authenticate('google', {failureRedirect: '/user/auth/login/failed'}),
 (req, res) => {
@@ -20,11 +30,17 @@ passport.authenticate('google', {failureRedirect: '/user/auth/login/failed'}),
   res.redirect(URL)
 })
 
+/**
+ * @route GET /user/logout - logs user out of the app
+ */
 router.get('/logout', (req, res) => {
   req.logout();
   res.redirect(URL);
 })
 
+/**
+ * @route GET /user/auth/login/failed - route to handle user login fails
+ */
 router.get('/auth/login/failed', (req, res) => {
   res.status(401).json({
     loginSuccess: false,
@@ -32,6 +48,9 @@ router.get('/auth/login/failed', (req, res) => {
   })
 })
 
+/**
+ * @route GET /user/auth/login/success - route to  handle user login success
+ */
 router.get('/auth/login/success', (req, res, next) => {
   console.log(req.user);
   if (req.user) {
@@ -58,7 +77,6 @@ router.get('/loginStat', (req, res) => {
   if (req.user) {
     res.json({
       loginStat: true,
-      user: req.user
     })
   } else {
     res.json({
@@ -72,6 +90,7 @@ router.get('/loginStat', (req, res) => {
  * handle for updating user shopping list with items
  * :id is the userid
  * just need to add the id is sufficient
+ * @route PUT /user/addItem/:id - adds an item to the user's shopping list in db
  *  */ 
 
 router.put('/addItem/:id', (req, res, next) => {

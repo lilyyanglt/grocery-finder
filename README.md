@@ -29,7 +29,7 @@ Special thanks to:
   - other stores available
   - etc.
 
-### Version 2.0 (To be Deployed)
+### Version 2.0 (Not yet deployed)
 Total time taken to build this: ~5 days. (Sept 2020)
 
 - Implemented login with google
