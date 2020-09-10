@@ -1,6 +1,7 @@
 import React from 'react'
 import style from '../style/card.module.css'
 
+const LOGIN_LINK = (process.env.NODE_ENV === 'development') ? "http://localhost:3000/login" : "https://grocery-finder.netlify.app/login";
 
 const Card = (({
   content, 
@@ -12,7 +13,7 @@ const Card = (({
     if (userState.authenticated) {
       updateList(content)
     } else {
-      window.open("http://localhost:3000/login", "_self")
+      window.open(LOGIN_LINK, "_self")
     }
   }
 

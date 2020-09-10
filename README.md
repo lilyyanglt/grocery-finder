@@ -16,7 +16,7 @@ Special thanks to:
 - [Tutorial for setting up twitter authentication](https://github.com/leannezhang/twitter-authentication) - I learned from her approach to implement my google login authentication
 
 ## Demo
-* Here's a demo of what the app looks like. This is version 2.0 demo completed on Sept 7, 2020.
+* Here's a demo of what the app looks like. This is version 2.0 demo completed on Sept 9, 2020.
 
 ![link](./demo/grocery_app_demo.gif)
 
@@ -29,7 +29,7 @@ Special thanks to:
   - other stores available
   - etc.
 
-### Version 2.0 (Deployed)
+### Version 2.0 (To be Deployed)
 Total time taken to build this: ~5 days. (Sept 2020)
 
 - Implemented login with google

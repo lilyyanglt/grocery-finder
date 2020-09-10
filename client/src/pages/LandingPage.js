@@ -10,8 +10,9 @@ import { fetchData } from '../util/api.js';
 import fetchDataTest from '../test/testApi'
 import '../style/main.css'
 
-let url = (process.env.REACT_APP_NODE_ENV === 'development') ? process.env.REACT_APP_DEVELOPMENT_API : process.env.REACT_APP_DATA_API;
+const SERVER_API = (process.env.NODE_ENV === 'development') ? process.env.REACT_APP_DEV_DATA_API : process.env.REACT_APP_PROD_DATA_API;
 
+console.log(SERVER_API)
 
 function LandingPage({  
   userState,
@@ -29,7 +30,7 @@ function LandingPage({
     /** get data from api **/
 
     React.useEffect(() => {
-      fetchData(dispatchData, url);
+      fetchData(dispatchData, SERVER_API);
     }, [])
   
 
@@ -40,6 +41,9 @@ function LandingPage({
     /* purpose of this section is to update the filtered data based on 
        what's in the user's shopping list so that before it gets displayed to the user, the items in the user's list will be marked with an added flag
     */
+
+    // let filterData = updateDataResult(dbData.data, userState, searchTerm);
+
     let filteredData = dbData.data.filter(item => item.itemName.toLowerCase().includes(searchTerm.toLowerCase()));
 
     if (userState.authenticated) {
@@ -63,7 +67,7 @@ function LandingPage({
       />
       {dbData.isErrored && <LoadingError />}
       {dbData.isLoading 
-      ? <ReactLoading className="loading" type="spinningBubbles" color="#3CDFD5" height={100} width={50} />
+      ? <ReactLoading className="loading" type="spinningBubbles" color="#3273DC" height={100} width={50} />
       : <ResultList 
         userState={userState}
         isErrored={dbData.isErrored} 

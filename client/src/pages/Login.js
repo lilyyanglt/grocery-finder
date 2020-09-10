@@ -2,10 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from '../style/login.module.css'
 
+const LOGIN_URL = (process.env.NODE_ENV === 'development') ? process.env.REACT_APP_DEV_USER_API : process.env.REACT_APP_PROD_USER_API
+
 function Login() {
 
   const handleLogin = () => {
-    window.open("http://localhost:4000/user/auth/google", "_self")
+    window.open(`${LOGIN_URL}/auth/google`, "_self")
   }
 
   return <div className={styles.loginSection}>

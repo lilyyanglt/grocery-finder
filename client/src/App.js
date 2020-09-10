@@ -6,7 +6,7 @@ import userStatusReducer from './util/userStatusReducer'
 import { updateShoppingList } from './util/api'
 import * as types from "./util/types"
 
-const SERVER_DOMAIN = (process.env.REACT_APP_NODE_ENV === 'development') ? 'http://localhost:4000' : process.env.REACT_APP_USER_API
+const SERVER_USER_API = (process.env.NODE_ENV === 'development') ? process.env.REACT_APP_DEV_USER_API : process.env.REACT_APP_PROD_USER_API
 
 function App() {
 
@@ -22,7 +22,11 @@ function App() {
 
   React.useEffect(() => {
 
-    fetch("http://localhost:4000/user/auth/login/success", {
+    /**
+     * source: https://github.com/leannezhang/twitter-authentication
+     */
+
+    fetch(`${SERVER_USER_API}/auth/login/success`, {
       method: "GET",
       credentials: "include",
       headers: {
@@ -46,12 +50,12 @@ function App() {
 
   const updateUserShoppingList = (content) => {
     if(content.isAdded) {
-      updateShoppingList(SERVER_DOMAIN,
-        content, "/user/removeItem/", userState.userId,
+      updateShoppingList(SERVER_USER_API,
+        content, "/removeItem/", userState.userId,
         dispatchUser)
     } else {
-      updateShoppingList(SERVER_DOMAIN,
-        content, "/user/addItem/", userState.userId,
+      updateShoppingList(SERVER_USER_API,
+        content, "/addItem/", userState.userId,
         dispatchUser)
     }
   }
