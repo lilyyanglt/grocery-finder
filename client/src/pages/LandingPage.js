@@ -66,7 +66,7 @@ function LandingPage({
       />
       {dbData.isErrored && <LoadingError />}
       {dbData.isLoading 
-      ? <ReactLoading className="loading" type="spinningBubbles" color="#3CDFD5" height={100} width={50} />
+      ? <ReactLoading className="loading" type="spinningBubbles" color="#3273DC" height={100} width={50} />
       : <ResultList 
         userState={userState}
         isErrored={dbData.isErrored} 
